@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultado do Teste</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div id="resultado">
+    <h2>Resultado Final</h2>
+    <p>Nome: {{ nome }}</p>
+    <p>Pontuação Total: {{ pontuacao_total }}</p>
+    <p>{{ mensagem_resultado }}</p>
+    <p><a href="https://wa.me/" target="_blank">Clique aqui para visitar o seu site</a></p>
+    <button onclick="reiniciarJogo()">Jogar Novamente</button>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

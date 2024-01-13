@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste de Maturidade em Produção de Conteúdo no LinkedIn</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div id="formulario">
+    <h1>Preencha seus dados antes de iniciar o teste:</h1>
+    <form action="{{ url_for('processar_teste') }}" method="post">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" placeholder="Seu Nome" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Seu Email" required>
+
+      <label for="telefone">Telefone:</label>
+      <input type="tel" id="telefone" name="telefone" placeholder="Seu Telefone" required>
+
+      <button type="button" onclick="iniciarTeste()">Iniciar Teste</button>
+    </form>
+  </div>
+
+  <div id="quizContainer" style="display: none;">
+    <div id="quiz">
+      <h2>Avalie sua atividade no LinkedIn e descubra quão avançada é sua estratégia de conteúdo.</h2>
+      <div id="question"></div>
+      <div id="options"></div>
+    </div>
+    <div id="resultado" style="display: none;">
+      <h2>Resultado Final</h2>
+      <p>Sua pontuação total é: <span id="pontuacaoTotal"></span></p>
+      <p id="mensagemResultado"></p>
+      <p><a href="https://wa.me/" target="_blank">Clique aqui para visitar o seu site</a></p>
+      <button onclick="reiniciarJogo()">Jogar Novamente</button>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <script>
+    function iniciarTeste() {
+      document.getElementById("formulario").style.display = "none";
+      document.getElementById("quizContainer").style.display = "block";
+      exibirPergunta();
+    }
+  </script>
+</body>
+</html>
